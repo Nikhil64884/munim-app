@@ -1,0 +1,20 @@
+# ---- Production ----
+fastapi==0.115.6
+uvicorn[standard]==0.32.1
+groq==0.13.0
+python-dotenv==1.0.1
+python-multipart==0.0.20
+sqlalchemy==2.0.36
+openpyxl==3.1.5
+PyJWT==2.10.1
+twilio==9.3.8
+firebase-admin==6.6.0
+sentry-sdk[fastapi]==2.19.2
+boto3==1.35.90
+cryptography==44.0.0
+tzdata==2026.5
+
+# ---- Testing & Dev ----
+pytest==8.3.4
+httpx==0.28.1
+ruff==0.8.4

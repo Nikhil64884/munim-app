@@ -1,0 +1,31 @@
+services:
+  api:
+    build: .
+    container_name: munim-ji-api
+    ports:
+      - "${HOST_BIND:-127.0.0.1}:8000:8000"
+    env_file:
+      - .env
+    environment:
+      ENV: ${ENV:-dev}
+      DATABASE_URL: sqlite:////app/data/munim_ji.db
+      LOG_DIR: /app/logs
+      EXPORTS_DIR: /app/exports
+      BACKUP_DIR: /app/data/backups
+      FORWARDED_ALLOW_IPS: ${FORWARDED_ALLOW_IPS:-127.0.0.1}
+    volumes:
+      # Persist the database, backups, exports and logs outside the container.
+      - ./data:/app/data
+      - ./exports:/app/exports
+      - ./logs:/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/healthz').read()"
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s

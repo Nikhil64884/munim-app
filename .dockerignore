@@ -1,0 +1,51 @@
+__pycache__/
+*.py[cod]
+*.so
+.env
+.env.*
+!.env.example
+
+# Database
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+data/
+logs/
+exports/
+
+# Testing
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# VCS
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+
+# Build
+build/
+dist/
+*.egg-info/
+
+# Virtual envs
+venv/
+.venv/
+
+# ZIPs
+*.zip
+
+# Tests (optional — remove if you want them in the image)
+tests/
+
+# Scripts (optional)
+scripts/
